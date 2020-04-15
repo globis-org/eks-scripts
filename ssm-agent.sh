@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 role_name="ssm-bastion-activation"
 default_instance_name="ssm-bastion"
