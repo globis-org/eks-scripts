@@ -7,7 +7,7 @@ RUN mkdir /tmp/ssm
 WORKDIR /tmp/ssm
 
 RUN apt-get update && \
-    apt-get install -y --no-install-recommends procps curl wget tar zip unzip sudo mariadb-client vim && \
+    apt-get install -y --no-install-recommends procps curl wget tar zip unzip sudo mariadb-client vim screen less iputils-ping redis-tools && \
     # AWS CLI v2
     wget https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip -O awscliv2.zip --no-check-certificate && \
     unzip awscliv2.zip && \
