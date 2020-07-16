@@ -3,7 +3,7 @@ FROM amazonlinux:2
 LABEL maintainer "GLOBIS"
 
 RUN yum update -y && \
-    yum install -y systemd procps curl tar zip unzip sudo mariadb vim && \
+    yum install -y systemd procps curl tar zip unzip sudo mariadb vim screen && \
     # ssm-agent
     yum install -y https://s3.amazonaws.com/ec2-downloads-windows/SSMAgent/latest/linux_amd64/amazon-ssm-agent.rpm && \
     # AWS CLI
