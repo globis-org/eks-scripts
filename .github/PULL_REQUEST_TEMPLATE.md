@@ -1,10 +1,6 @@
-## プルリクエストの目的・概要 (Purpose & Summary)
-**注意: このリポジトリはpublic repositoryです。機密情報は含めないでください。**
+## プルリクエストの目的・概要
+**注意: このリポジトリは、Public Repositoryです。機密情報は含めないでください。**
 
-## 関連するIssue (Related Issue)
+## 関連するIssue
 
-
-## 変更内容 (Changes)
-
-
-## 影響範囲 (Impact)
+## 変更内容
