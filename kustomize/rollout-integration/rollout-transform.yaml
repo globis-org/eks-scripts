@@ -1,0 +1,6 @@
+# 元の configurations に足りないものを追加する
+# これがないと Kustomization の labels が上手く動かない
+templateLabels:
+  - path: spec/template/metadata/labels
+    create: true
+    kind: Rollout
