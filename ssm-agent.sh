@@ -14,10 +14,15 @@ function activate(){
 
 function shutdown(){
     echo "start shutdown process ..."
-    instance_id=$(cat /var/lib/amazon/ssm/registration | jq -r .ManagedInstanceID)
-    aws ssm deregister-managed-instance --instance-id $instance_id
+    if [ -f /var/lib/amazon/ssm/registration ]; then
+        instance_id=$(cat /var/lib/amazon/ssm/registration | jq -r .ManagedInstanceID)
+        if [ -n "${instance_id}" ] && [ "${instance_id}" != "null" ]; then
+            aws ssm deregister-managed-instance --instance-id $instance_id
+        fi
+    fi
     kill $(pgrep amazon-ssm)
     echo "shutdown process completed."
+    exit 0
 }
 
 function start(){
