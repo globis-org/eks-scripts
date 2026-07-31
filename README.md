@@ -32,12 +32,13 @@ AWS Systems Managerエージェントをコンテナで実行するためのシ�
 - サンプルとしてDebianベースとAmazon Linuxベースのコンテナ用のDockerfileが格納されています。
 
 ### 使用方法
-2つの環境変数が必要となります。
+2つの環境変数が必要となります。加えて、任意で以下の環境変数を指定できます。
 
 |  環境変数名  |  説明  |
 | ---- | ---- |
 |  BASTION_ROLE_NAME  |  管理対象ノードに割り当てるIAMロールの名前。<br>詳細は[公式ドキュメント](https://docs.aws.amazon.com/ja_jp/systems-manager/latest/userguide/session-manager-getting-started-instance-profile.html)を確認してください。  |
 |  BASTION_INSTANCE_NAME  |  管理対象ノードの名前。  |
+|  PRODUCT  |  (任意) 指定するとアクティベーションに `Product=<値>` タグを付与し、登録されるマネージドノードに継承される。未指定なら従来どおりタグなし。  |
 
 ## License
 このプロジェクトは [MIT License](https://github.com/globis-org/eks-ssm-agent-container/blob/main/LICENSE) に基づいています。

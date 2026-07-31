@@ -7,7 +7,15 @@ fi
 
 function activate(){
     echo "start activate process ..."
-    activation=$(aws ssm create-activation --default-instance-name "${BASTION_INSTANCE_NAME}" --iam-role "${BASTION_ROLE_NAME}" --output text)
+    local tag_options=()
+    if [ -n "${PRODUCT}" ]; then
+        tag_options=(--tags "Key=Product,Value=${PRODUCT}")
+    fi
+    activation=$(aws ssm create-activation --default-instance-name "${BASTION_INSTANCE_NAME}" --iam-role "${BASTION_ROLE_NAME}" "${tag_options[@]}" --output text)
+    if [ -z "${activation}" ]; then
+        echo "ERROR: create-activation failed." >&2
+        exit 1
+    fi
     SSM_AGENT_CODE=$(echo $activation | cut -f 1 -d ' ')
     SSM_AGENT_ID=$(echo $activation | cut -f 2 -d ' ')
 }
